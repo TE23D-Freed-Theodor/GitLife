@@ -1,0 +1,15 @@
+C:\Users\theodor.freed\Documents\Programmering\GitLife\GitLife\bin\Debug\net9.0\GitLife.exe
+C:\Users\theodor.freed\Documents\Programmering\GitLife\GitLife\bin\Debug\net9.0\GitLife.deps.json
+C:\Users\theodor.freed\Documents\Programmering\GitLife\GitLife\bin\Debug\net9.0\GitLife.runtimeconfig.json
+C:\Users\theodor.freed\Documents\Programmering\GitLife\GitLife\bin\Debug\net9.0\GitLife.dll
+C:\Users\theodor.freed\Documents\Programmering\GitLife\GitLife\bin\Debug\net9.0\GitLife.pdb
+C:\Users\theodor.freed\Documents\Programmering\GitLife\GitLife\obj\Debug\net9.0\GitLife.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\theodor.freed\Documents\Programmering\GitLife\GitLife\obj\Debug\net9.0\GitLife.AssemblyInfoInputs.cache
+C:\Users\theodor.freed\Documents\Programmering\GitLife\GitLife\obj\Debug\net9.0\GitLife.AssemblyInfo.cs
+C:\Users\theodor.freed\Documents\Programmering\GitLife\GitLife\obj\Debug\net9.0\GitLife.csproj.CoreCompileInputs.cache
+C:\Users\theodor.freed\Documents\Programmering\GitLife\GitLife\obj\Debug\net9.0\GitLife.sourcelink.json
+C:\Users\theodor.freed\Documents\Programmering\GitLife\GitLife\obj\Debug\net9.0\GitLife.dll
+C:\Users\theodor.freed\Documents\Programmering\GitLife\GitLife\obj\Debug\net9.0\refint\GitLife.dll
+C:\Users\theodor.freed\Documents\Programmering\GitLife\GitLife\obj\Debug\net9.0\GitLife.pdb
+C:\Users\theodor.freed\Documents\Programmering\GitLife\GitLife\obj\Debug\net9.0\GitLife.genruntimeconfig.cache
+C:\Users\theodor.freed\Documents\Programmering\GitLife\GitLife\obj\Debug\net9.0\ref\GitLife.dll
