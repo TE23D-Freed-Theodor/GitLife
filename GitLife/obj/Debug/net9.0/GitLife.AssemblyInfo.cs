@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("GitLife")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+eaa9e32c146adb3576fb0f8845ff9b1b4a921364")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+995fac84f94407342e6caf66e0810a48dfdba310")]
 [assembly: System.Reflection.AssemblyProductAttribute("GitLife")]
 [assembly: System.Reflection.AssemblyTitleAttribute("GitLife")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
