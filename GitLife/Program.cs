@@ -1,4 +1,5 @@
-﻿using System.Runtime.CompilerServices;
+﻿using System;
+using System.Collections.Generic;
 
 class person {
 
@@ -30,7 +31,7 @@ class person {
     int health; // skala från 1-100 spelarens hälsa
     string healthDirection = "positive"; // om spelaren blir mer/mindre hälsosam när den åldras
 
-    int wealth = 0; // (i dollar) spelarens pengar
+    int wealth = 0; // spelarens pengar
     int salary = 0; // hur mycket spelaren tjänar varje år (efter skatt, allt från veckopeng till jobb)
 
     public person(Random random) {
@@ -59,14 +60,43 @@ class person {
     public void ageUp(Random random) {
         age++;
 
-        if (intelligenceDirection == "positive") {intelligence += random.Next(0, 6);}
-        else {intelligence -= random.Next(0, 6);}
+        if (intelligenceDirection == "positive" && intelligence > 140 && age < 60) {if (random.Next(0, 2) == 1) {intelligence += random.Next(0, 2);}}
+        else if (intelligenceDirection == "positive" && intelligence > 120 && age < 60) {intelligence += random.Next(0, 2);}
+        else if (intelligenceDirection == "positive" && age < 60) {intelligence += random.Next(0, 6);}
+        else if (intelligenceDirection == "positive" && age > 60 && age < 80) {intelligence += random.Next(-1, 2);}
+        else {intelligence += random.Next(-3, 2);}
 
-        if (looksDirection == "positive") {looks += random.Next(0, 6);}
-        else {looks -= random.Next(0, 6);}
+        if (looksDirection == "positive" && looks > 99) {looks = 100;}
+        else if (looksDirection == "negative" && gender == "female" && age < 25) {looks += random.Next(-2, 2);}
+        else if (age >= 25 && gender == "female") {looks += random.Next(-2, 2);}
+        else if (looksDirection == "negative" && gender == "male" && age < 40) {looks += random.Next(-2, 4);}
+        else if (age >= 45 && gender == "male") {looks += random.Next(-2, 2);}
+        else if (looksDirection == "positive" && looks > 80) {looks += random.Next(0, 2);}
+        else if (looksDirection == "positive") {looks += random.Next(0, 6);}
 
-        if (healthDirection == "positive") {health += random.Next(0, 6);}
+        if (healthDirection == "positive" && health > 99) {health = 100;}
+        else if (healthDirection == "positive" && health > 80) {health += random.Next(0, 2);}
+        else if (healthDirection == "positive") {health += random.Next(0, 6);} 
         else {health -= random.Next(0, 6);}
+
+        print_player_info();
+    }
+
+    public void print_player_info() {
+        Console.WriteLine("------------------");
+            Console.WriteLine("Player info:");
+            Console.WriteLine("   name: " + this.firstName + " " + this.lastName);
+            Console.WriteLine("   gender: " + this.gender);
+            Console.WriteLine("   age: " + this.age);
+            Console.WriteLine("");
+
+            Console.WriteLine("Statistics:");
+            Console.WriteLine("   Intelligence: " + this.intelligence);
+            Console.WriteLine("   Looks: " + this.looks);
+            Console.WriteLine("   Health: " + this.health);
+            Console.WriteLine("   Wealth: " + this.wealth + "SEK");
+            Console.WriteLine("   Salary: " + this.salary + " SEK");
+            Console.WriteLine("------------------\n\n\n");
     }
 
     static void Main(string[] args) {
@@ -74,23 +104,11 @@ class person {
         person player = new person(random); 
         Console.CursorVisible = false;
 
+        player.print_player_info();
+
         while (true) {
             Console.SetCursorPosition(0, 0); 
-            Console.WriteLine("------------------");
-            Console.WriteLine("Player info:");
-            Console.WriteLine("   name: " + player.firstName + " " + player.lastName);
-            Console.WriteLine("   gender: " + player.gender);
-            Console.WriteLine("   age: " + player.age);
-            Console.WriteLine("");
 
-            Console.WriteLine("Statistics:");
-            Console.WriteLine("   Intelligence: " + player.intelligence);
-            Console.WriteLine("   Looks: " + player.looks);
-            Console.WriteLine("   Health: " + player.health);
-            Console.WriteLine("   Wealth: " + player.wealth);
-            Console.WriteLine("   Salary: " + player.salary);
-            Console.WriteLine("------------------\n\n\n");
-        
             if (Console.KeyAvailable) {
                 ConsoleKeyInfo buttonPressed = Console.ReadKey(true); // kollar konstant vilken tangent som är tryckt
                 if (buttonPressed.Key == ConsoleKey.Spacebar) {player.ageUp(random);}
