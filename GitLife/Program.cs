@@ -36,6 +36,9 @@ class person
     int wealth = 0; // spelarens pengar
     int salary = 0; // hur mycket spelaren tjänar varje år (efter skatt, allt från veckopeng till jobb)
 
+    List<string> felonies = new List<string>();
+    List<string> sjukdomar = new List<string>();
+
     public person(Random random)
     {
 
@@ -98,6 +101,11 @@ class person
             Thread.Sleep(1000);
             RandomEventPrimarySchool(random);
         }
+        else if (age >= 13 && age <= 17)
+        {
+            Thread.Sleep(1000);
+            RandomEventTeen(random);
+        }
     }
 
     public void print_player_info()
@@ -115,6 +123,19 @@ class person
         Console.WriteLine("   Health: " + this.health);
         Console.WriteLine("   Wealth: " + this.wealth + " SEK");
         Console.WriteLine("   Salary: " + this.salary + " SEK");
+
+        Console.WriteLine("Felonies:");
+        foreach (string felony in felonies)
+        {
+            Console.WriteLine("  " + felony);
+        }
+
+        Console.WriteLine("Sjukdomar/Diagnoser:");
+        foreach (string sjukdom in sjukdomar)
+        {
+            Console.WriteLine("  " + sjukdom);
+        }
+
         Console.WriteLine("------------------\n\n\n");
     }
 
@@ -320,7 +341,7 @@ class person
                         Console.WriteLine("Du dog av förgiftning. Spelet är slut.");
                         Console.ReadLine();
                         Environment.Exit(0);
-                        
+
                     }
                 }
                 else
@@ -516,6 +537,192 @@ class person
                 {
                     Console.WriteLine("Du hamnade i slagsmål och fick ett blåmärke. (-2 health)");
                     health -= 2;
+                }
+                break;
+        }
+    }
+
+    void RandomEventTeen(Random random)
+    {
+        int eventIndex = random.Next(0, 11);
+        switch (eventIndex)
+        {
+            case 0:
+                Console.WriteLine("\nDina kompisar erbjuder dig en cigarett. Vad gör du?");
+                Console.WriteLine("1. Rök arslet av dig, man lever ju ändå bara en gång ;)");
+                Console.WriteLine("2. Avböj och gå till kyrkan");
+                break;
+            case 1:
+                Console.WriteLine("\nNågon i klassen bli brutalt jävla mobbad. Vad gör du?");
+                Console.WriteLine("1. Häng ut skitungen");
+                Console.WriteLine("2. Tjalla");
+                break;
+            case 2:
+                Console.WriteLine("\nEn klasskamrat ber dig om hjälp med läxan. Vad gör du?");
+                Console.WriteLine("1. Hjälper till och förklarar");
+                Console.WriteLine("2. Säger att du är för upptagen");
+                break;
+            case 3:
+                Console.WriteLine("\nDu får chansen att fuska på ett prov. Vad gör du?");
+                Console.WriteLine("1. Avvakta och svara på frågorna själv");
+                Console.WriteLine("2. JA nu kör vi");
+                break;
+            case 4:
+                Console.WriteLine("\nDu går till ICA med några polare. Vad köper du?");
+                Console.WriteLine("1. En cola zero och en banan");
+                Console.WriteLine("2. En stor pizzaslice, 2 redbulls, en marabou, 3 daimstrutar, en aladin chokladask, 7 klubbor, 4 godispåsar, ett sexpack med ölburkar, fem proteinbars och en gurka");
+                break;
+            case 5:
+                Console.WriteLine("\nIdag så är du ensam hemma. Vad väljer du att göra?");
+                Console.WriteLine("1. Städa, diska, laga en hälsosam måltid");
+                Console.WriteLine("2. Ställa till med en megafest");
+                break;
+            case 6:
+                Console.WriteLine("\n.Vad gör du?");
+                Console.WriteLine("1. Springer ut i skogen och gråter");
+                Console.WriteLine("2. Lever vidare ditt liv utan att springa ut i skogen och gråta");
+                break;
+            case 7:
+                Console.WriteLine("\nEn Karen på COOP hävdar att du inte borde äta kött för att det är dåligt för miljön. Vad gör du?");
+                Console.WriteLine("1. Slår ihjäl henne med en köttbit");
+                Console.WriteLine("2. Låter henne vara ifred");
+                break;
+            case 8:
+                Console.WriteLine("\nDu får en skoluppgift där du ska skriva om din största dröm. Vad gör du?");
+                Console.WriteLine("1. Skriver entusiastiskt och visar din ambition");
+                Console.WriteLine("2. Slösar tid och lämnar in något halvdant");
+                break;
+            case 9:
+                Console.WriteLine("\nEn mystisk man försöker sälja droger till dig på gatan. Vad gör du?");
+                Console.WriteLine("1. DAGS att shoppa, am I right?");
+                Console.WriteLine("2. Ringer polisen");
+                break;
+        }
+        char choice = Console.ReadKey(true).KeyChar;
+        Console.Clear();
+
+        switch (eventIndex)
+        {
+            case 0:
+                if (choice == '1')
+                {
+                    Console.WriteLine("Du har utvecklat ett rökberoende och lider nu av lungcancer");
+                    sjukdomar.Add("Lungcancer");
+                }
+                else
+                {
+                    Console.WriteLine("Du har precis undvikit lungcancer");
+                }
+                break;
+            case 1:
+                if (choice == '1')
+                {
+                    Console.WriteLine("Läraren blir arg på dig och du skickas ut i frontlinjen i Ukraina");
+                    // Frontline Ukraine
+                }
+                else
+                {
+                    Console.WriteLine("Nu är du också mobbad, undvik mobbare i följande spel");
+                    // Undvik mobbare
+                }
+                break;
+            case 2:
+                if (choice == '1')
+                {
+                    Console.WriteLine("Du hjälpte en vän och stärkte din förståelse. (+2 intelligence)");
+                    intelligence += 2;
+                }
+                else
+                {
+                    Console.WriteLine("Du valde att inte hjälpa, men kanske missade en lärorik stund. (-1 intelligence)");
+                    intelligence -= 1;
+                }
+                break;
+            case 3:
+                if (choice == '1')
+                {
+                    Console.WriteLine("Dtt betyg blev jävligt dåligt, men du fuskade i alla fall inte");
+                }
+                else
+                {
+                    Console.WriteLine("Din lärare kom på dig och du skickas nu till frontlinjen i Ukraina");
+                    // Frontline Ukraine
+                }
+                break;
+            case 4:
+                if (choice == '1')
+                {
+                    Console.WriteLine("Du har undvikit socker och har nu fått i dig vitaminer (+2 health)");
+                    health += 2;
+                }
+                else
+                {
+                    if (sjukdomar.Contains("Diabetes"))
+                    {
+                        // Spelaren dör
+                    }
+                    else
+                    {
+                        sjukdomar.Add("Diabetes");
+                        Console.WriteLine("Grattis, du lider nu av diabetes");
+                    }
+                }
+                break;
+            case 5:
+                if (choice == '1')
+                {
+                    Console.WriteLine("Dina föräldrar är stolta över dig (+500 SEK)");
+                    wealth += 500;
+                }
+                else
+                {
+                    Console.WriteLine("Polisen tillkallas och du spenderar natten i fyllecellen");
+                    felonies.Add("En natt i fyllecellen");
+                }
+                break;
+            case 6:
+                if (choice == '1')
+                {
+                    Console.WriteLine("Okej, najs");
+                }
+                else
+                {
+                    Console.WriteLine("Okej, najs");
+                }
+                break;
+            case 7:
+                if (choice == '1')
+                {
+                    Console.WriteLine("Polisen tar dig på bar gärning och du får ett fängelsestraff på 30 år");
+                    age += 30;
+                    felonies.Add("Dråp");
+                }
+                else
+                {
+                    Console.WriteLine("Det hela var ett test och du har blivit belönad med en massa jävla cash. (+5000 wealth)");
+                }
+                break;
+            case 8:
+                if (choice == '1')
+                {
+                    Console.WriteLine("Du skrev med passion och lärde dig om dina egna drömmar. (+3 intelligence)");
+                    intelligence += 3;
+                }
+                else
+                {
+                    Console.WriteLine("Du slarvade och fick ett lågt betyg. (-2 intelligence)");
+                    intelligence -= 2;
+                }
+                break;
+            case 9:
+                if (choice == '1')
+                {
+                    Console.WriteLine("Det var tyvärr inga riktiga droger (-2000 wealth)");
+                    wealth -= 2000;
+                }
+                else
+                {
+                    Console.WriteLine("Personen hamnade i finkan och du undvek ett potentiellt fängelsestraff");
                 }
                 break;
         }
